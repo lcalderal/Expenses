@@ -1,17 +1,31 @@
 # expenses
 
-A new Flutter project.
+# Weekly Expense Tracker
 
-## Getting Started
+Flutter application developed for personal expense management. The project allows users to register weekly expenses, categorizing them into electricity bills, credit card payments, food, transportation, and other expense types.
 
-This project is a starting point for a Flutter application.
+## **Features**
 
-A few resources to get you started if this is your first Flutter project:
+* Expense registration
+* List of registered expenses
+* Expense deletion
+* Weekly expense overview
+* Expense tracking chart
+* Responsive user interface built with Flutter
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## **Technologies Used**
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Flutter
+* Dart
+* Material Design
+
+## **Project Purpose**
+
+This project was developed for learning purposes, focusing on practicing fundamental Flutter concepts, such as:
+
+* Stateless and Stateful Widgets
+* State Management
+* List Manipulation
+* Forms and User Input
+* Screen Navigation
+* Responsive UI Development
