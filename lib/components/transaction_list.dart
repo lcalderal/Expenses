@@ -11,22 +11,26 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return transactions.isEmpty
-        ? Column(
-            children: [
-              SizedBox(height: 20),
-              Text(
-                'Nenhuma transação cadastrada!',
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-              SizedBox(height: 20),
-              Container(
-                height: 200,
-                child: Image.asset(
-                  'assets/images/waiting.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ],
+        ? LayoutBuilder(
+            builder: (ctx, constraints) {
+              return Column(
+                children: [
+                  SizedBox(height: 20),
+                  Text(
+                    'Nenhuma transação cadastrada!',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    height: constraints.maxHeight * 0.6,
+                    child: Image.asset(
+                      'assets/images/waiting.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ],
+              );
+            },
           )
         : ListView.builder(
             itemCount: transactions.length,
@@ -50,11 +54,17 @@ class TransactionList extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   subtitle: Text(DateFormat('d MMM y').format(tr.date)),
-                  trailing: IconButton(
-                    onPressed: () => onRemove(tr.id),
-                    icon: Icon(Icons.delete),
-                    color: Color(Colors.red.toARGB32()),
-                  ),
+                  trailing: MediaQuery.of(context).size.width > 400
+                      ? ElevatedButton.icon(
+                          onPressed: () => onRemove(tr.id),
+                          icon: null,
+                          label: Text('Excluir'),
+                        )
+                      : IconButton(
+                          onPressed: () => onRemove(tr.id),
+                          icon: Icon(Icons.delete),
+                          color: Color(Colors.red.toARGB32()),
+                        ),
                 ),
               );
             },
